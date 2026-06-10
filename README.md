@@ -1,50 +1,50 @@
-# Welcome to your Expo app 👋
+# Atividade Prática Avaliativa - Programação para Dispositivos Móveis
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+### Contextualização
+Você, um aluno do curso técnico em desenvolvimento de sistemas, recebeu um projeto para desenvolver um aplicativo de busca de pokémons. O aplicativo deve permitir buscar um pokémon pelo nome ou número e exibir suas informações. 
 
-## Get started
+O aplicativo hoje funciona parcialmente, o usuário pode buscar um pokémon pelo nome ou número e exibir suas informações. No entanto, o aplicativo não possui uma interface agradável e as informações são exibidas de forma desorganizada no console da aplicação, onde o usuário final não tem acesso.
 
-1. Install dependencies
+### Desafio
+Seu desafio é implementar uma interface agradável para o usuário, exibindo as informações de forma organizada e legível, em uma interface que funcione tanto em dispositivos android quanto ios.
 
-   ```bash
-   npm install
-   ```
+Além de exibir os itens na tela, você deve também criar uma interface intuitiva e bem elaborado para o usuário, aplicando estilos com o objetivo de atender e enriquecer a experiência do usuário.
 
-2. Start the app
+### Requisitos
 
-   ```bash
-   npx expo start
-   ```
+- [ ] Implementar uma interface agradável para o usuário
+- [ ] Exibir as informações de forma organizada e legível
+- [ ] Criar uma interface intuitiva e bem elaborado para o usuário
+- [ ] Aplicar estilos com o objetivo de atender e enriquecer a experiência do usuário
 
-In the output, you'll find options to open the app in a
+### Instruções
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+1. Crie um fork do projeto
+2. Faça o clone do seu repositório para sua máquina
+3. Instale as dependências
+4. Desenvolva o projeto seguindo as instruções
+5. Envie seu projeto para o GitHub
+6. Envie o link do seu repositório para o professor
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
 
-## Get a fresh project
+### Detalhes
+O projeto deve ser desenvolvido utilizando React Native e TypeScript.
 
-When you're ready, run:
+A API REST que deve ser utilizada é a https://pokeapi.co/api/v2/pokemon/
 
-```bash
-npm run reset-project
-```
+### Exemplo de saída
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+#### Em caso de sucesso:
 
-## Learn more
+POKÉMON ENCONTRADO!
+- Nome: bulbasaur
+- ID: 1
+- URL da Imagem: https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/1.gif
+- Tipagem: grass, poison
+- Descrição: A strange seed was planted on its back at birth. The plant sprouts and grows with this POKéMON.
 
-To learn more about developing your project with Expo, look at the following resources:
+<hr>
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+#### Em caso de erro:
 
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Não foi possível obter os dados do Pokémon.
