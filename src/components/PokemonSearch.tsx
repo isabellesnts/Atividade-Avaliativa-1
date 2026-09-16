@@ -8,9 +8,11 @@ import {
     View
 } from "react-native";
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { useRouter } from "expo-router";
 import PokemonRequests from "../services/PokemonRequests";
 
 export default function PokemonSearch() {
+    const router = useRouter();
     const [searchQuery, setSearchQuery] = useState("");
     const [loading, setLoading] = useState(false);
     const [errorMsg, setErrorMsg] = useState("");
@@ -38,6 +40,21 @@ export default function PokemonSearch() {
             console.error(error);
             setLoading(false);
         }
+    };
+
+    const getTypesText = () => {
+        if (!pokemon?.types) return "";
+        if (Array.isArray(pokemon.types)) {
+            return pokemon.types.join(", ");
+        }
+        return [pokemon.types.type1, pokemon.types.type2]
+            .filter(Boolean)
+            .join(", ");
+    };
+
+    const handleGoToDetails = () => {
+        if (!pokemon) return;
+        router.push(`/pokemon/${pokemon.pokemon_id}`);
     };
 
     return (
@@ -69,7 +86,7 @@ export default function PokemonSearch() {
                 {errorMsg ? <Text style={styles.errorText}>{errorMsg}</Text> : null}
 
                 {pokemon && (
-                    <View style={styles.card}>
+                    <Pressable style={styles.card} onPress={handleGoToDetails}>
                         <Image
                             source={{ uri: pokemon.pokemon_image }}
                             style={styles.pokemonImage}
@@ -80,13 +97,15 @@ export default function PokemonSearch() {
                         </Text>
 
                         <Text style={styles.pokemonTypes}>
-                            Tipagem: {pokemon.types.join(", ")}
+                            Tipagem: {getTypesText()}
                         </Text>
 
                         <Text style={styles.descriptionText}>
                             {pokemon.description || "Nenhuma descrição encontrada."}
                         </Text>
-                    </View>
+
+                        <Text style={styles.tapHint}>Toque para ver detalhes →</Text>
+                    </Pressable>
                 )}
             </View>
         </SafeAreaView>
@@ -161,5 +180,11 @@ const styles = StyleSheet.create({
     descriptionText: {
         color: "#000000",
         textAlign: "center",
+    },
+    tapHint: {
+        marginTop: 12,
+        color: "#00695c",
+        fontWeight: "600",
+        fontSize: 13,
     },
 });
